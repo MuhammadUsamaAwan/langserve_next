@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 model = ChatLlamaCpp(
-    model_path="D:/Development/Projects/aphroditepy/Llama-3.1-8B-Lexi-Uncensored_V2_Q5.gguf",
+    model_path="full_model_path",
     n_gpu_layers=-1,
     n_batch=512,
     n_ctx=128000,
