@@ -12,7 +12,7 @@ export default function HomePage() {
   const [messages, setMessages] = useState([
     {
       id: crypto.randomUUID(),
-      role: 'system',
+      type: 'system',
       content: 'You are a helpful assistant that can answer questions and help with tasks.',
     },
   ]);
@@ -26,7 +26,7 @@ export default function HomePage() {
             ...messages,
             {
               id: crypto.randomUUID(),
-              role: 'user',
+              type: 'human',
               content: input,
             },
           ];
@@ -41,7 +41,7 @@ export default function HomePage() {
                 ...prev,
                 {
                   id,
-                  role: 'assistant',
+                  type: 'ai',
                   content: '',
                 },
               ]);
@@ -68,10 +68,10 @@ export default function HomePage() {
         />
         <div className='space-y-4 mt-4'>
           {messages
-            .filter(m => m.role !== 'system')
+            .filter(m => m.type !== 'system')
             .map((m, i) => (
               <div key={i}>
-                {m.role === 'user' ? 'User: ' : 'AI: '} {m.content}
+                {m.type === 'human' ? 'User: ' : 'AI: '} {m.content}
               </div>
             ))}
         </div>

@@ -19,8 +19,8 @@ app.add_middleware(
 )
 
 model = ChatLlamaCpp(
-    model_path="full_model_path",
-    n_gpu_layers=-1,
+    model_path="", # full path to model
+    n_gpu_layers=-1, # remove this if you don't have a GPU
     n_batch=512,
     n_ctx=128000,
 )
